@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Vote Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar">
+    <h1>Vote <span class="badge">dApp</span></h1>
+    <div class="wallet-info">
+        <span id="wallet">Not connected</span>
+        <button class="btn-connect" onclick="connect()">Connect Wallet</button>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="content-left">
+        <section class="card">
+            <h2>Доступные предложения</h2>
+            <p id="status" class="status-msg"></p>
+            <div id="proposals" class="proposals-grid">
+                </div>
+        </section>
+
+        <section class="card winner-card">
+            <h2>🏆 Определение победителя 🏆</h2>
+            <p id="winner" class="winner-name">Ожидание финала...</p>
+            <button class="btn-winner" onclick="winner()">Узнать результат</button>
+        </section>
+    </div>
+
+    <aside class="admin-sidebar">
+        <div class="card admin-card">
+            <h2>👑 Admin Panel 👑</h2>
+            <p class="subtitle">Управление правами доступа</p>
+            <div class="admin-form">
+                <input id="addr" placeholder="0x... адрес кошелька">
+                <button class="btn-admin" onclick="giveRight()">Предоставить право</button>
+            </div>
+            <div class="admin-footer">
+                <small>Доступно только владельцу контракта</small>
+            </div>
+        </div>
+    </aside>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
