@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[65475,["/Blockchain_projects/project7/ballot-next/_next/static/chunks/0w6e58~4_d4mf.js"],"default"]
+3:I[16844,["/Blockchain_projects/project7/ballot-next/_next/static/chunks/0w6e58~4_d4mf.js"],"default"]
+4:[]
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"JVR6HLi_SxEoz-ZTBdtWX"}
