@@ -4,32 +4,27 @@ on:
   push:
     branches: ["main"]
 
-
 permissions:
   contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
       - name: Install and Build 🏗️
         run: |
-          # Находим путь к папке, где лежит package.json проекта ballot-next
-          PROJECT_PATH=$(find . -name "package.json" -not -path "*/node_modules/*" | grep "ballot-next" | xargs dirname)
-          echo "Found project at: $PROJECT_PATH"
-          
-          cd "$PROJECT_PATH"
+          cd project7/ballot-next
           npm install
           npm run build
           touch out/.nojekyll
-
 
       - name: Deploy to Branch 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: project7/ballot-next/out
-          target-folder: project7/ballot-next # Деплоим прямо в эту папку
-          branch: gh-pages # Создаем отдельную ветку для хостинга
+          target-folder: project7/ballot-next
+          branch: gh-pages
