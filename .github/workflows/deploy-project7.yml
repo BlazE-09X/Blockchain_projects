@@ -1,0 +1,30 @@
+name: Deploy Project 7
+
+on:
+  push:
+    branches: ["main"]
+    paths: ["Blockchain_projects/project7/**"] # Запуск только при изменениях в 7-м проекте
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Install and Build 🏗️
+        run: |
+          cd Blockchain_projects/project7/ballot-next
+          npm install
+          npm run build
+          touch out/.nojekyll
+
+      - name: Deploy to Branch 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: Blockchain_projects/project7/ballot-next/out
+          target-folder: Blockchain_projects/project7/ballot-next # Деплоим прямо в эту папку
+          branch: gh-pages # Создаем отдельную ветку для хостинга
