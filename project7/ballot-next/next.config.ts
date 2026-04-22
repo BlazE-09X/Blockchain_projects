@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/project7/ballot-next',
+  basePath: '/Blockchain_projects/project7/ballot-next',
   images: {
     unoptimized: true,
   },
