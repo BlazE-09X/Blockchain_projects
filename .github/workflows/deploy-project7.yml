@@ -17,10 +17,15 @@ jobs:
 
       - name: Install and Build 🏗️
         run: |
-          cd Blockchain_projects/project7/ballot-next
+          # Находим путь к папке, где лежит package.json проекта ballot-next
+          PROJECT_PATH=$(find . -name "package.json" -not -path "*/node_modules/*" | grep "ballot-next" | xargs dirname)
+          echo "Found project at: $PROJECT_PATH"
+          
+          cd "$PROJECT_PATH"
           npm install
           npm run build
           touch out/.nojekyll
+
 
       - name: Deploy to Branch 🚀
         uses: JamesIves/github-pages-deploy-action@v4
